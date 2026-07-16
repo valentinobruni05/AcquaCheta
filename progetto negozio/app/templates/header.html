@@ -1,0 +1,38 @@
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="sidebar-brand">
+    <a href="{{ url_for('routes.index') }}">
+      <div class="brand-icon">🏪</div>
+      <div class="brand-name">
+        Gestionale
+        <span>Negozio</span>
+      </div>
+    </a>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">Menu</div>
+
+    <a href="{{ url_for('routes.index') }}"
+       class="sidebar-link {% if request.endpoint == 'routes.index' %}active{% endif %}">
+      <span class="nav-icon">📦</span>
+      Inventario
+    </a>
+
+    <a href="{{ url_for('routes.aggiungi') }}"
+       class="sidebar-link {% if request.endpoint == 'routes.aggiungi' %}active{% endif %}">
+      <span class="nav-icon">➕</span>
+      Aggiungi Prodotto
+    </a>
+
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="{{ url_for('routes.logout') }}" class="sidebar-link">
+      <span class="nav-icon">🚪</span>
+      Logout
+    </a>
+  </div>
+
+</aside>

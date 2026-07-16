@@ -1,0 +1,36 @@
+classDiagram
+    class Admin {
+        +username
+        +password
+        +set_password()
+        +check_password()
+    }
+    class Prodotto {
+        +id
+        +nome
+        +marca
+        +prezzo
+        +quantita
+        +descrizione
+        +nome_file
+    }
+
+sequenceDiagram
+    actor Admin
+    participant App as Applicazione Web
+    participant DB as Database
+
+    Admin->>App: Invia credenziali
+    App->>DB: Verifica credenziali
+    DB-->>App: Risultato (OK / Errore)
+    App-->>Admin: Accesso consentito / negato
+
+sequenceDiagram
+    actor Admin
+    participant App as Applicazione Web
+    participant DB as Database
+
+    Admin->>App: Invia dati del prodotto
+    App->>DB: Salva dati prodotto nel DB
+    DB-->>App: Conferma salvataggio
+    App-->>Admin: Mostra lista prodotti

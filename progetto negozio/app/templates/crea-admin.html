@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup Admin — Gestionale Negozio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-card fade-in-up">
+
+    <div class="auth-logo">🔑</div>
+    <h1 class="auth-title">Setup Iniziale</h1>
+    <p class="auth-subtitle">Crea il tuo account amministratore</p>
+
+    <div class="alert-custom alert-info" style="margin-bottom:24px;">
+      ℹ Questa pagina è disponibile solo durante il primo avvio.
+      Dopo la creazione dell'admin, verrà disabilitata.
+    </div>
+
+    <form method="POST" class="form-custom" novalidate>
+      {{ form.hidden_tag() }}
+
+      <div class="form-group">
+        {{ form.username.label }}
+        {{ form.username(placeholder="Scegli uno username") }}
+        {% for error in form.username.errors %}
+          <div class="form-error">⚠ {{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(placeholder="Scegli una password sicura") }}
+        {% for error in form.password.errors %}
+          <div class="form-error">⚠ {{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="btn-brand" style="width:100%; justify-content:center; padding:12px; margin-top:8px;">
+        ✅ Crea Amministratore
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+</body>
+</html>
