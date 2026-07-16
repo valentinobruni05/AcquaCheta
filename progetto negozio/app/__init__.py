@@ -36,7 +36,7 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = (
         f"mysql+pymysql://{db_user}:{db_pass}"
         f"@{db_host}:{db_port}/{db_name}"
-        f"?ssl_ca={db_ssl_ca}"
+        f"?ssl_ca={db_ssl_ca}&ssl_verify_cert=true"
     )
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
